@@ -1,23 +1,13 @@
-require('dotenv').config(); 
-
 const username = 'WesleyS08';
 
 async function fetchRepos() {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=created&direction=desc`, {
-        headers: {
-            'Authorization': `token ${process.env.GITHUB_TOKEN}` // Usando a variável de ambiente
-        }
-    });
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=created&direction=desc`);
     const repos = await response.json();
     return repos;
 }
 
 async function fetchUserStats() {
-    const response = await fetch(`https://api.github.com/users/${username}`, {
-        headers: {
-            'Authorization': `token ${process.env.GITHUB_TOKEN}` // Usando a variável de ambiente
-        }
-    });
+    const response = await fetch(`https://api.github.com/users/${username}`);
     const userData = await response.json();
     return userData;
 }
