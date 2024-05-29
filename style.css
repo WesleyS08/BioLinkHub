@@ -24,7 +24,7 @@ body {
     min-height: 100vh;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    overflow-x: auto; /* Permitir rolagem horizontal */
+    overflow-x: hidden;
 }
 
 a {
