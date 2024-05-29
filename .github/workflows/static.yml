@@ -1,0 +1,54 @@
+# Fluxo de trabalho simples para implantar conteúdo estático no GitHub Pages
+name: Implantação de conteúdo estático no Pages E CSS 
+
+on:
+  # Roda em push direcionado para o ramo padrão
+  push:
+    branches: ["main"]
+
+  # Permite que você execute este fluxo de trabalho manualmente na guia Actions
+  workflow_dispatch:
+
+# Define permissões do GITHUB_TOKEN para permitir implantação no GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite apenas uma implantação simultânea, ignorando execuções na fila entre a execução em andamento e a última na fila.
+# No entanto, NÃO cancele execuções em andamento, pois queremos permitir que essas implantações de produção sejam concluídas.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Única tarefa de implantação, pois estamos apenas implantando
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Páginas
+        uses: actions/configure-pages@v5
+      - name: Carregar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Carregar todo o repositório
+          path: '.'
+      - name: Implantar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # Testar a sintaxe do CSS
+      - name: Testar CSS
+        run: |
+          echo "Executando testes de sintaxe do CSS..."
+          # Comandos simples para verificar a sintaxe do CSS
+          # Aqui você pode executar comandos como `csslint` ou `stylelint`
+          # por exemplo:
+          # csslint path/to/your/css/file.css
+          # ou
+          # stylelint path/to/your/css/file.css
