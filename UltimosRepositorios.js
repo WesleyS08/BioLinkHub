@@ -1,13 +1,24 @@
+
+console.log("Token de Autenticação:", process.env.GITHUB_TOKEN); // Imprime o token de autenticação
+
 const username = 'WesleyS08';
 
 async function fetchRepos() {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=created&direction=desc`);
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=created&direction=desc`, {
+        headers: {
+            'Authorization': `token ${process.env.GITHUB_TOKEN}` // Usando a variável de ambiente
+        }
+    });
     const repos = await response.json();
     return repos;
 }
 
 async function fetchUserStats() {
-    const response = await fetch(`https://api.github.com/users/${username}`);
+    const response = await fetch(`https://api.github.com/users/${username}`, {
+        headers: {
+            'Authorization': `token ${process.env.GITHUB_TOKEN}` // Usando a variável de ambiente
+        }
+    });
     const userData = await response.json();
     return userData;
 }
