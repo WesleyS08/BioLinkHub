@@ -35,6 +35,7 @@ Para usar este projeto, basta clonar o repositório e abrir o arquivo `index.htm
 
 ```bash
 git clone https://github.com/WesleyS08/BioLinkHub.git
+```
 
 ## Tecnologias Utilizadas
 
@@ -44,7 +45,7 @@ Este projeto utiliza as seguintes tecnologias:
 - CSS
 - JavaScript
 - Biblioteca FontAwesome ([https://fontawesome.com/](https://fontawesome.com/))
-- Chart.js ([https://www.chartjs.org/](https://www.chartjs.org/))
+
 
 ## Licença
 
