@@ -16,10 +16,10 @@ jobs:
 
       - name: Fetch GitHub Repos and User Data
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          curl -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/WesleyS08/repos?sort=created&direction=desc" > repos.json
-          curl -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/users/WesleyS08" > user.json
+          curl -H "Authorization: token $PERSONAL_TOKEN" "https://api.github.com/users/WesleyS08/repos?sort=created&direction=desc" > repos.json
+          curl -H "Authorization: token $PERSONAL_TOKEN" "https://api.github.com/users/WesleyS08" > user.json
 
       - name: Commit JSON data
         run: |
