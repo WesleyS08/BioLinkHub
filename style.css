@@ -8,10 +8,18 @@
     --color-cardposi: #151515;
     --color-backgroud: #151515;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.icon-site {
+    width: 64px;
+    /* Defina o tamanho desejado */
+    height: 64px;
+    /* Defina o tamanho desejado */
 }
 
 body {
@@ -305,6 +313,7 @@ a {
     align-items: center;
     justify-content: center;
 }
+
 .widget8 {
     height: 100%;
     width: 200%;
@@ -321,14 +330,15 @@ a {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
 
 }
 
 .github-stats-container h2 {
     font-size: .9rem;
     color: var(--color-white);
-    margin-bottom: 10px; /* Espaçamento adicional abaixo do texto */
+    margin-bottom: 10px;
+    /* Espaçamento adicional abaixo do texto */
 }
 
 
@@ -360,8 +370,10 @@ a {
     color: var(--color-black);
     padding: 1rem;
 }
+
 .widget4 iframe {
-    border-radius: 10px; /* Defina o raio da borda conforme desejado */
+    border-radius: 10px;
+    /* Defina o raio da borda conforme desejado */
 }
 
 .meu-site {
