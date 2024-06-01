@@ -1,7 +1,7 @@
 
 // config.js
 const config = {
-    GITHUB_TOKEN: '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'
+    GITHUB_TOKEN: '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'
 };
 
 export default config;
